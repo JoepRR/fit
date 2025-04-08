@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Femboy Fitness Tracker</title>
+    <style>        
+body {
+    font-family: Arial, sans-serif;
+    background-color: #ffb3ff;
+    margin: 0;
+    padding: 0;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(225, 0, 255, 0.3);
+}
+
+.container {
+    width: 80%;
+    margin: 10px auto;
+    background-color: #fff4ff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #ff00ff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    padding-bottom: 30px;
+}
+
+label {
+    display: block;
+    font-size: 1.1em;
+    margin-bottom: 10px;
+    color: #ff00ff;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+select {
+    width: 100%;
+    padding: 10px;
+    font-size: 1.1em;
+    border: 1px solid #ff00ff;
+    border-radius: 5px;
+    background-color: #ffc0ff;
+    color: #ff00ff;
+    box-sizing: border-box;
+}
+
+select:hover {
+    background-color: #ff7cff;
+}
+
+select:focus {
+    outline: none;
+    border-color: #ff72ff;
+}
+
+iframe {
+    border-radius: 20px;
+    margin-top: 20px;
+}
+
+.exercise {
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: #ffc0ff;
+    border-radius: 8px;
+    border: 1px solid #ff00ff;
+}
+
+.exercise h3 {
+    font-size: 1.2em;
+    margin: 0;
+    color: #ffffff;
+}
+
+.info-btn {
+    background-color: #ff72ff;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.info-btn:hover {
+    background-color: #ff89ff;
+}
+
+.counter {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.sets {
+    font-size: 1.1em;
+    margin-left: 10px;
+}
+
+.done {
+    color: green;
+    font-weight: bold;
+    margin-left: 10px;
+}
+
+.completed-list {
+    margin-top: 20px;
+    background-color: #ffc0ff;
+    padding: 15px;
+    border-radius: 8px;
+    border: 1px solid #ff00ff;
+}
+
+.completed-list h4 {
+    margin-top: 0;
+    color: #ff00ff;
+}
+
+.completed-exercises {
+    margin: 10px 0;
+}
+
+.completed-exercises span {
+    display: inline-block;
+    margin-right: 5px;
+    background-color: #ff7cff;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.progress {
+    margin-top: 10px;
+    font-weight: bold;
+}
+
+.timer-controls {
+    margin-top: 10px;
+}
+
+.timer-btn {
+    background-color: #ffb3ff;
+    color: white;
+    padding: 8px 16px;
+    margin: 5px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.timer-btn:hover {
+    background-color: #ff89ff;
+}
+
+.reset-btn {
+    background-color: #ffb3ff;
+    padding: 8px 16px;
+    margin: 5px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.reset-btn:hover {
+    background-color: #ff89ff;
+}
+
+/* Add some custom styling for the workout picker */
+#workout-group {
+    margin-bottom: 20px;
+}
+
+/* For the Confetti container */
+#confetti-container {
+    display: none;
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Joep's Workout Tracker</h1>
+
+        <!-- Workout Picker -->
+        <label for="workout-group">Choose a Workout Group:</label>
+        <select id="workout-group" onchange="selectWorkoutGroup()">
+            <option value="slimmer-waist">Slimmer Waist</option>
+            <option value="stronger-core">Stronger Core</option>
+            <option value="bigger-thighs">Bigger Thighs</option>
+            <option value="lose-belly-fat">Lose Belly Fat</option>
+            <option value="lose-chest-fat">Lose Chest Fat</option>
+            <option value="flexibility">Flexibility</option>
+        </select>
+
+        <iframe style="border-radius:20px" src="https://open.spotify.com/embed/playlist/5wtmYcmP3omefIqQckfXKM?utm_source=generator" width="100%" height="200" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy" padding-top="20px"></iframe>
+
+        <div id="exercise-container">
+            <button class="reset-btn" onclick="resetExercises()">Reset Exercises</button>
+        </div> <!-- Dynamic Exercise Display -->
+        
+        <!-- Completed Exercises Tracker -->
+        <div class="completed-list">
+            <h4>Completed Exercises</h4>
+            <div id="completed-exercises" class="completed-exercises"></div>
+            <div id="progress" class="progress">0/0 exercises done</div>
+        </div>
+
+        <!-- Timer Controls -->
+        <div class="timer-controls">
+            <div id="timer" class="timer">00:00</div>
+            <button id="start-btn" class="timer-btn" onclick="startTimer()">Start</button>
+            <button id="pause-btn" class="timer-btn" onclick="pauseTimer()">Pause</button>
+            <button id="reset-btn" class="timer-btn" onclick="resetTimer()">Reset</button>
+        </div>
+    </div>
+
+    <div id="confetti-container" style="display:none;"></div>
+    <script src="workoutGroups.js"></script>
+    <script>
+        let currentExerciseIndex = 0;
+        let currentWorkoutGroup = "slimmer-waist"; // Default workout group
+
+        // Display the current exercise
+        function displayExercise() {
+            const exercises = workoutGroups[currentWorkoutGroup];
+            if (currentExerciseIndex < exercises.length) {
+                const exercise = exercises[currentExerciseIndex];
+                const exerciseContainer = document.getElementById("exercise-container");
+
+                exerciseContainer.innerHTML = `
+                    <div class="exercise">
+                        <h3>${exercise.title}</h3>
+                        <p>${exercise.instructions}</p>
+                        <p><strong>Reps:</strong> ${exercise.reps}</p>
+                        <div class="counter">
+                            <p>Sets Completed: <span id="sets-${currentExerciseIndex}" class="sets">${exercise.setsCompleted}</span> / ${exercise.setsRequired}</p>
+                        </div>
+                        <button class="info-btn" onclick="increaseSets(${currentExerciseIndex})">Complete Set</button>
+                    </div>
+                `;
+            }
+        }
+
+        // Increase sets for the current exercise
+        function increaseSets(index) {
+            const exercises = workoutGroups[currentWorkoutGroup];
+            const exercise = exercises[index];
+            exercise.setsCompleted += 1;
+            document.getElementById(`sets-${index}`).innerText = exercise.setsCompleted;
+
+            // Check if the exercise is done and show the next exercise
+            if (exercise.setsCompleted >= exercise.setsRequired) {
+                addToCompletedList(exercise);
+                currentExerciseIndex++;
+                if (currentExerciseIndex < exercises.length) {
+                    displayExercise();
+                } else {
+                    alert('All exercises completed! Great job!');
+                    showConfetti(); // Trigger confetti celebration
+                    resetExercises();
+                }
+            }
+        }
+
+        // Add completed exercise to the list
+        function addToCompletedList(exercise) {
+            const completedExercises = document.getElementById("completed-exercises");
+            const exerciseElem = document.createElement("span");
+            exerciseElem.textContent = exercise.title;
+            completedExercises.appendChild(exerciseElem);
+
+            // Update progress
+            const progress = document.getElementById("progress");
+            const completedCount = completedExercises.children.length;
+            progress.textContent = `${completedCount}/${workoutGroups[currentWorkoutGroup].length} exercises done`;
+        }
+
+        // Reset all exercises
+        function resetExercises() {
+            currentExerciseIndex = 0;
+            workoutGroups[currentWorkoutGroup].forEach(exercise => exercise.setsCompleted = 0);
+            document.getElementById("completed-exercises").innerHTML = "";
+            document.getElementById("progress").textContent = "0/0 exercises done";
+            displayExercise();
+        }
+
+        // Workout Group Selection
+        function selectWorkoutGroup() {
+            const selectedGroup = document.getElementById("workout-group").value;
+            currentWorkoutGroup = selectedGroup;
+            currentExerciseIndex = 0; // Reset to first exercise of the selected group
+            resetExercises(); // Reset exercises whenever a new workout group is selected
+        }
+
+        // Timer Functions
+        let timerInterval;
+        let time = 0;
+
+        function startTimer() {
+            if (!timerInterval) {
+                timerInterval = setInterval(() => {
+                    time++;
+                    const minutes = Math.floor(time / 60);
+                    const seconds = time % 60;
+                    document.getElementById("timer").textContent = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+                }, 1000);
+            }
+        }
+
+        function pauseTimer() {
+            clearInterval(timerInterval);
+            timerInterval = null;
+        }
+
+        function resetTimer() {
+            clearInterval(timerInterval);
+            timerInterval = null;
+            time = 0;
+            document.getElementById("timer").textContent = "00:00";
+        }
+
+        // Confetti animation for workout completion
+        function showConfetti() {
+            const confettiSettings = {
+                shapes: ['star'],
+                startVelocity: 70,
+                particleCount: 300,
+                spread: 1000,
+                origin: { y: 0.5 },
+                colors: ['#cc66ff', '#ff66ff', '#ff33cc', '#ff4dff'],
+            };
+            confetti(confettiSettings); // Trigger the confetti burst
+        }
+
+        // Display the first exercise
+        displayExercise();
+    </script>
+</body>
+</html>
