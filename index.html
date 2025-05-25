@@ -8,26 +8,25 @@
     <style>        
 body {
     font-family: Arial, sans-serif;
-    background-color: #ffb3ff;
+    background-color: #0B0C10;
     margin: 0;
     padding: 0;
-    color: white;
-    text-shadow: 2px 2px 4px rgba(225, 0, 255, 0.3);
+    color: #C5C6C7;
 }
 
 .container {
     width: 80%;
     margin: 10px auto;
-    background-color: #fff4ff;
+    background-color: #1F2833;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
 h1 {
     text-align: center;
-    color: #ff00ff;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    color: #66FCF1;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
     padding-bottom: 30px;
 }
 
@@ -35,28 +34,27 @@ label {
     display: block;
     font-size: 1.1em;
     margin-bottom: 10px;
-    color: #ff00ff;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+    color: #66FCF1;
 }
 
 select {
     width: 100%;
     padding: 10px;
     font-size: 1.1em;
-    border: 1px solid #ff00ff;
+    border: 1px solid #66FCF1;
     border-radius: 5px;
-    background-color: #ffc0ff;
-    color: #ff00ff;
+    background-color: #0B0C10;
+    color: #C5C6C7;
     box-sizing: border-box;
 }
 
 select:hover {
-    background-color: #ff7cff;
+    background-color: #1F2833;
 }
 
 select:focus {
     outline: none;
-    border-color: #ff72ff;
+    border-color: #45A29E;
 }
 
 iframe {
@@ -67,20 +65,20 @@ iframe {
 .exercise {
     margin-bottom: 20px;
     padding: 10px;
-    background-color: #ffc0ff;
+    background-color: #1F2833;
     border-radius: 8px;
-    border: 1px solid #ff00ff;
+    border: 1px solid #45A29E;
 }
 
 .exercise h3 {
     font-size: 1.2em;
     margin: 0;
-    color: #ffffff;
+    color: #66FCF1;
 }
 
 .info-btn {
-    background-color: #ff72ff;
-    color: white;
+    background-color: #45A29E;
+    color: #0B0C10;
     padding: 5px 10px;
     border: none;
     border-radius: 5px;
@@ -88,7 +86,8 @@ iframe {
 }
 
 .info-btn:hover {
-    background-color: #ff89ff;
+    background-color: #66FCF1;
+    color: #1F2833;
 }
 
 .counter {
@@ -100,25 +99,26 @@ iframe {
 .sets {
     font-size: 1.1em;
     margin-left: 10px;
+    color: #66FCF1;
 }
 
 .done {
-    color: green;
+    color: #45A29E;
     font-weight: bold;
     margin-left: 10px;
 }
 
 .completed-list {
     margin-top: 20px;
-    background-color: #ffc0ff;
+    background-color: #1F2833;
     padding: 15px;
     border-radius: 8px;
-    border: 1px solid #ff00ff;
+    border: 1px solid #45A29E;
 }
 
 .completed-list h4 {
     margin-top: 0;
-    color: #ff00ff;
+    color: #66FCF1;
 }
 
 .completed-exercises {
@@ -128,14 +128,17 @@ iframe {
 .completed-exercises span {
     display: inline-block;
     margin-right: 5px;
-    background-color: #ff7cff;
+    background-color: #45A29E;
     padding: 5px;
     border-radius: 5px;
+    color: #0B0C10;
+    font-weight: bold;
 }
 
 .progress {
     margin-top: 10px;
     font-weight: bold;
+    color: #C5C6C7;
 }
 
 .timer-controls {
@@ -143,8 +146,8 @@ iframe {
 }
 
 .timer-btn {
-    background-color: #ffb3ff;
-    color: white;
+    background-color: #45A29E;
+    color: #0B0C10;
     padding: 8px 16px;
     margin: 5px;
     border: none;
@@ -153,11 +156,13 @@ iframe {
 }
 
 .timer-btn:hover {
-    background-color: #ff89ff;
+    background-color: #66FCF1;
+    color: #1F2833;
 }
 
 .reset-btn {
-    background-color: #ffb3ff;
+    background-color: #45A29E;
+    color: #0B0C10;
     padding: 8px 16px;
     margin: 5px;
     border: none;
@@ -166,18 +171,20 @@ iframe {
 }
 
 .reset-btn:hover {
-    background-color: #ffe0ff;
+    background-color: #66FCF1;
+    color: #1F2833;
 }
 
-/* Add some custom styling for the workout picker */
+/* Workout Picker */
 #workout-group {
     margin-bottom: 20px;
 }
 
-/* For the Confetti container */
+/* Confetti container */
 #confetti-container {
     display: none;
 }
+
 
     </style>
 </head>
@@ -196,7 +203,7 @@ iframe {
             <option value="flexibility">Flexibility</option>
         </select>
 
-        <iframe style="border-radius:20px" src="https://open.spotify.com/embed/playlist/5wtmYcmP3omefIqQckfXKM?utm_source=generator" width="100%" height="200" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy" padding-top="20px"></iframe>
+        <iframe style="border-radius:20px" src="https://open.spotify.com/embed/playlist/6ISQFvBLsSiqQCPAD3OJeY?utm_source=generator" width="100%" height="200" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy" padding-top="20px"></iframe>
 
         <div id="exercise-container">
             <button class="reset-btn" onclick="resetExercises()">Reset Exercises</button>
@@ -222,15 +229,48 @@ iframe {
     <script src="workoutGroups.js"></script>
     <script>
         let currentExerciseIndex = 0;
-        let currentWorkoutGroup = "slimmer-waist"; // Default workout group
-
+        let currentWorkoutGroup = localStorage.getItem("currentWorkoutGroup") || "slimmer-waist";
+        let timerInterval;
+        let time = parseInt(localStorage.getItem("timerTime") || "0");
+    
+        // Load progress from localStorage
+        function loadProgress() {
+            const savedData = localStorage.getItem(`progress-${currentWorkoutGroup}`);
+            if (savedData) {
+                const data = JSON.parse(savedData);
+                workoutGroups[currentWorkoutGroup].forEach((exercise, i) => {
+                    exercise.setsCompleted = data.sets[i] || 0;
+                });
+                currentExerciseIndex = data.currentIndex || 0;
+            }
+        }
+    
+        // Save progress to localStorage
+        function saveProgress() {
+            const sets = workoutGroups[currentWorkoutGroup].map(e => e.setsCompleted);
+            localStorage.setItem(`progress-${currentWorkoutGroup}`, JSON.stringify({
+                sets,
+                currentIndex: currentExerciseIndex
+            }));
+        }
+    
+        // Save timer to localStorage
+        function saveTimer() {
+            localStorage.setItem("timerTime", time.toString());
+        }
+    
+        // Save selected workout group
+        function saveWorkoutGroup() {
+            localStorage.setItem("currentWorkoutGroup", currentWorkoutGroup);
+        }
+    
         // Display the current exercise
         function displayExercise() {
             const exercises = workoutGroups[currentWorkoutGroup];
             if (currentExerciseIndex < exercises.length) {
                 const exercise = exercises[currentExerciseIndex];
                 const exerciseContainer = document.getElementById("exercise-container");
-
+    
                 exerciseContainer.innerHTML = `
                     <div class="exercise">
                         <h3>${exercise.title}</h3>
@@ -242,20 +282,24 @@ iframe {
                         <button class="info-btn" onclick="increaseSets(${currentExerciseIndex})">Complete Set</button>
                     </div>
                 `;
+    
+                updateCompletedList(); // refresh UI
             }
         }
-
+    
         // Increase sets for the current exercise
         function increaseSets(index) {
             const exercises = workoutGroups[currentWorkoutGroup];
             const exercise = exercises[index];
             exercise.setsCompleted += 1;
             document.getElementById(`sets-${index}`).innerText = exercise.setsCompleted;
-
+            saveProgress();
+    
             // Check if the exercise is done and show the next exercise
             if (exercise.setsCompleted >= exercise.setsRequired) {
                 addToCompletedList(exercise);
                 currentExerciseIndex++;
+                saveProgress();
                 if (currentExerciseIndex < exercises.length) {
                     displayExercise();
                 } else {
@@ -265,64 +309,84 @@ iframe {
                 }
             }
         }
-
+    
         // Add completed exercise to the list
         function addToCompletedList(exercise) {
             const completedExercises = document.getElementById("completed-exercises");
             const exerciseElem = document.createElement("span");
             exerciseElem.textContent = exercise.title;
             completedExercises.appendChild(exerciseElem);
-
-            // Update progress
-            const progress = document.getElementById("progress");
-            const completedCount = completedExercises.children.length;
-            progress.textContent = `${completedCount}/${workoutGroups[currentWorkoutGroup].length} exercises done`;
+    
+            updateProgressText();
         }
-
+    
+        function updateCompletedList() {
+            const completedExercises = document.getElementById("completed-exercises");
+            completedExercises.innerHTML = "";
+    
+            const exercises = workoutGroups[currentWorkoutGroup];
+            exercises.forEach(exercise => {
+                if (exercise.setsCompleted >= exercise.setsRequired) {
+                    const exerciseElem = document.createElement("span");
+                    exerciseElem.textContent = exercise.title;
+                    completedExercises.appendChild(exerciseElem);
+                }
+            });
+    
+            updateProgressText();
+        }
+    
+        function updateProgressText() {
+            const completedCount = document.getElementById("completed-exercises").children.length;
+            const total = workoutGroups[currentWorkoutGroup].length;
+            document.getElementById("progress").textContent = `${completedCount}/${total} exercises done`;
+        }
+    
         // Reset all exercises
         function resetExercises() {
             currentExerciseIndex = 0;
-            workoutGroups[currentWorkoutGroup].forEach(exercise => exercise.setsCompleted = 0);
+            workoutGroups[currentWorkoutGroup].forEach(e => e.setsCompleted = 0);
             document.getElementById("completed-exercises").innerHTML = "";
             document.getElementById("progress").textContent = "0/0 exercises done";
+            saveProgress();
             displayExercise();
         }
-
+    
         // Workout Group Selection
         function selectWorkoutGroup() {
             const selectedGroup = document.getElementById("workout-group").value;
             currentWorkoutGroup = selectedGroup;
-            currentExerciseIndex = 0; // Reset to first exercise of the selected group
-            resetExercises(); // Reset exercises whenever a new workout group is selected
+            saveWorkoutGroup();
+            loadProgress();
+            displayExercise();
         }
-
+    
         // Timer Functions
-        let timerInterval;
-        let time = 0;
-
         function startTimer() {
             if (!timerInterval) {
                 timerInterval = setInterval(() => {
                     time++;
+                    saveTimer();
                     const minutes = Math.floor(time / 60);
                     const seconds = time % 60;
                     document.getElementById("timer").textContent = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
                 }, 1000);
             }
         }
-
+    
         function pauseTimer() {
             clearInterval(timerInterval);
             timerInterval = null;
         }
-
+    
         function resetTimer() {
             clearInterval(timerInterval);
             timerInterval = null;
             time = 0;
+            saveTimer();
             document.getElementById("timer").textContent = "00:00";
         }
-
+    
         // Confetti animation for workout completion
         function showConfetti() {
             const confettiSettings = {
@@ -335,9 +399,17 @@ iframe {
             };
             confetti(confettiSettings); // Trigger the confetti burst
         }
-
-        // Display the first exercise
+    
+        // On page load
+        document.getElementById("workout-group").value = currentWorkoutGroup;
+        loadProgress();
         displayExercise();
+    
+        // Restore timer display
+        const minutes = Math.floor(time / 60);
+        const seconds = time % 60;
+        document.getElementById("timer").textContent = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
     </script>
+    
 </body>
 </html>
